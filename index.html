@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshay Vishnu - Personal Portfolio
+    </title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- sticky top bar, brand on the left and nav on the right -->
+<header class="site-header">
+
+    <p class="brand">Akshay Vishnu</p>
+
+    <nav aria-label="Primary">
+    <ul class="nav-list">
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#extracurriculars">Extras</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    </nav>
+
+</header>
+<main id="main">
+
+<!-- banner photo with the quote over it, then name and tagline -->
+<section id="intro">
+
+    <figure class="hero">
+        <img class="hero-img" src="assets/header_photo.avif" alt="Akshay Vishnu">
+        <figcaption class="hero-quote">He who has a why can bear any how</figcaption>
+    </figure>
+
+    <div class="intro-text">
+        <h1>Akshay Vishnu</h1>
+        <p class="tagline">Computer Science undergraduate at NIT Warangal, working on retrieval systems and applied machine learning.</p>
+        <ul class="cta-row">
+            <li><a class="btn" href="#projects">View Projects</a></li>
+            <li><a class="btn" href="#contact">Get in Touch</a></li>
+        </ul>
+    </div>
+
+</section>
+<!-- degree and CGPA -->
+<section id="about">
+<h2 > Education </h2>
+    <ul class="card-list">
+        <li>National Institute of Technology, Warangal</li>
+        <li>Bachelor of Technology in Computer Science and Engineering</li>
+        <li>Aug 2024 - May 2028</li>
+        <li>CGPA: 9.01 / 10</li>
+    </ul>
+
+</section>
+
+
+<!-- research role, detail lives in the projects section -->
+<section id="experience">
+
+<h2 > Experience </h2>
+<ul class="card-list">
+    <li>
+        <h3>Undergraduate Researcher - On-Device Machine Learning</h3>
+        <p>Built privacy-preserving mobile inference for SMS fraud and phishing
+           detection. Full technical detail is under Projects above.</p>
+    </li>
+
+</ul>
+
+</section>
+
+<!-- three project cards, laid out on a grid -->
+<section id="projects">
+<h2 > Projects  </h2>
+
+<div class="project-grid">
+
+
+
+<article class="project-card">
+    <img class="card-icon" src="assets/project-jurisnet.svg" width="64" height="64"
+         alt="Document linked to a network graph">
+
+<h3>
+    JurisNet - Citation-Faithful Hybrid RAG for Indian Civil Law
+    </h3>
+
+    <p><strong>Tech Stack:</strong> Python, Qdrant, Neo4j, SQLite FTS5, Voyage AI, Gemini, Groq</p>
+<p><strong>Duration:</strong> May 2026 - Jun 2026</p>
+ <p><a href="https://github.com/AkshayyVishnu/JurisNet">GitHub</a></p>
+ <p>
+ Engineered a 4-source, intent-routed hybrid retriever (dense, statute-label, BM25, citation graph) with
+query-adaptive weighted RRF. Ablation improved Recall@10 from 64% to 86%, Recall@20 from 67% to 96%, and MRR
+by 23% over dense-only RAG.
+</p>
+
+<p>
+Designed a legal-aware, 6-granularity chunking pipeline that preserves statutory provisions as atomic units and
+binding rules with their facts, retaining cross-document legal structure.
+</p>
+
+<p>
+Built an LLM-free set-membership citation verifier, guaranteeing 0 fabricated citations across a 50-question
+evaluation benchmark.
+</p>
+
+</article>
+
+
+
+
+<article class="project-card">
+
+    <img class="card-icon" src="assets/project-fraud.svg" width="64" height="64"
+         alt="Credit card">
+
+    <h3>Credit Card Fraud Detection</h3>
+
+    <p><strong>Tech Stack:</strong> XGBoost, Optuna, Stratified K-Fold, PR-AUC</p>
+
+    <p><strong>Duration:</strong> Oct 2025 - Dec 2025</p>
+
+    <p><a href="https://github.com/AkshayyVishnu/fraud-detection-microservice">GitHub</a></p>
+
+
+    <p>
+        Developed an end-to-end fraud detection pipeline on a highly imbalanced
+        dataset using XGBoost, achieving 74.3% PR-AUC, outperforming a logistic
+        regression baseline on both precision (80% to 85.3%) and recall (55% to 77.3%).
+    </p>
+
+
+
+    <p>
+        Optimized hyperparameters with Optuna and GPU acceleration, reducing
+        tuning time by 60% compared to grid search.
+    </p>
+
+
+
+    <p>
+        Applied 5-fold Stratified K-Fold cross-validation (no shuffling) and
+        isotonic calibration to improve probability estimates.
+    </p>
+
+
+</article>
+
+<article class="project-card">
+
+    <img class="card-icon" src="assets/project-sms.svg" width="64" height="64"
+         alt="Phone showing a message behind a shield">
+
+    <h3>On-Device SMS Fraud & Phishing Detection</h3>
+
+    <p><strong>Tech Stack:</strong> MobileBERT, CNN-BiLSTM, Bloom Filter, On-Device Inference</p>
+
+    <p><strong>Duration:</strong> Ongoing</p>
+
+    <p><a href="https://github.com/0xMukesh/artemis">GitHub</a></p>
+
+    <p>
+        Researched on-device machine learning for SMS fraud and phishing detection
+        using fine-tuned MobileBERT and a compact CNN-BiLSTM, enabling fully
+        offline, privacy-preserving inference.
+    </p>
+
+    <p>
+        Developed a hybrid detection pipeline combining neural models with weighted
+        rule-based heuristics and a Bloom filter domain blocklist to classify
+        messages across multiple fraud categories.
+    </p>
+
+</article>
+</div>
+</section>
+<!-- hackathon wins and awards , achivments-->
+<section id="achievements">
+
+ <h2> Achievements </h2>
+<ul class="card-list">
+   <li>Winner - ISEA National Fintech & Cybersecurity Hackathon, IIT Ropar.</li>
+   <li>National Finalist - The Arch Hackathon, IIT Kharagpur; ranked #1 entering the finals.</li>
+   <li>Winner & Special Mention - Hitachi Innothon 3.0.</li>
+   <li>Winner - FINNOVATE Hackathon, NIT Warangal.</li>
+   <li>Top 500 - Smart India Hackathon 2025.</li>
+   <li>Represented the CSE Department at the Academic - Industry Conclave.</li>
+   <li>Awarded Most Outstanding Student of the Year from a cohort of 211 students.</li>
+
+</ul>
+
+</section>
+
+<!-- skills section-->
+<section id="skills">
+
+   <h2>
+    Technical Skills
+   </h2>
+
+     <ul class="skill-list">
+        <li><strong>Languages:</strong> C, C++, Python, Java, R</li>
+        <li><strong>ML / DL:</strong> XGBoost, CNNs, RNNs, LSTMs, Transformers, Regression, Classification</li>
+        <li><strong>Frameworks:</strong> TensorFlow, Keras, PyTorch, Scikit-learn, LangChain, NLTK</li>
+        <li><strong>Tools & Infra:</strong> NumPy, Pandas, Optuna, Jupyter, Git</li>
+        <li><strong>Coursework:</strong> Data Structures & Algorithms, OOP (Java), DBMS, Operating Systems</li>
+    </ul>
+
+</section>
+<!-- sport , society positions -->
+<section id="extracurriculars">
+
+<h2 >Extracurriculars and Positions of Responsibility
+ </h2>
+ <ul class="card-list">
+
+
+<li>
+ Represented Tamil Nadu in Badminton.
+</li>
+
+<li>
+
+ Gold Medalist - Inter-University Badminton Championship.
+</li>
+<li>
+ Executive Member - Computer Science and Engineering Society (CSES), NIT Warangal.
+
+</li>
+<li>
+ Executive Member - HAM ARC
+
+</li>
+<li>
+Best Public Speaker - Junior Toastmasters
+</li>
+     </ul>
+
+</section>
+
+<!-- email profile links and the message form -->
+<section id="contact">
+
+<h2 > Contact </h2>
+
+    <p>
+        Reach me at <a href="mailto:akshayrkr22@gmail.com">akshayrkr22@gmail.com</a>.
+    </p>
+
+    <ul class="social-list">
+        <li><a href="https://github.com/AkshayyVishnu">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/akshay-vishnu-b2887b295/">LinkedIn</a></li>
+    </ul>
+
+    <!-- no action and no JS yet, so the browser handles validation on its own.
+         The submit target is in assignment 2. -->
+    <form class="contact-form" method="post">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </p>
+        <p>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </p>
+        <p>
+            <button type="submit" class="btn">Send</button>
+        </p>
+    </form>
+
+</section>
+</main>
+
+
+
+<footer class="site-footer">
+    <p>Akshay Vishnu</p>
+    <p><a href="#main">Back to top</a></p>
+</footer>
+
+</body>
+</html>
