@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { ThemeContext } from '../context/ThemeContext';
 
 const links = [
   { to: '/home', label: 'Home' },
@@ -8,6 +10,9 @@ const links = [
 ];
 
 function Navbar() {
+  const { theme, setTheme } = useContext(ThemeContext);
+  const next = theme === 'light' ? 'dark' : 'light';
+
   return (
     <header className="site-header">
       <p className="brand">Akshay Vishnu</p>
@@ -24,7 +29,16 @@ function Navbar() {
         </ul>
       </nav>
 
-      <div className="header-actions" />
+      <div className="header-actions">
+        <button
+          type="button"
+          className="icon-btn"
+          onClick={() => setTheme(next)}
+          aria-label={`Switch to ${next} theme`}
+        >
+          {next === 'dark' ? 'Dark' : 'Light'}
+        </button>
+      </div>
     </header>
   );
 }
