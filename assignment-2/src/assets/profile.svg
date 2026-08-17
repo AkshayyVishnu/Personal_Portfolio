@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Illustrated portrait mark">
-  <circle cx="100" cy="100" r="98" fill="#eef2f4"/>
-  <circle cx="100" cy="100" r="98" fill="none" stroke="#1f2933" stroke-width="3"/>
-  <circle cx="100" cy="80" r="32" fill="none" stroke="#1f2933" stroke-width="4"/>
-  <path d="M44 168a56 56 0 0 1 112 0" fill="none" stroke="#1f2933" stroke-width="4" stroke-linecap="round"/>
-  <path d="M62 60a40 40 0 0 1 76 0" fill="none" stroke="#2f5d62" stroke-width="4" stroke-linecap="round"/>
-</svg>
