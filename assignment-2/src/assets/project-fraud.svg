@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Credit card marked with a warning symbol">
+  <rect x="4" y="14" width="46" height="30" rx="4" fill="#eef2f4" stroke="#1f2933" stroke-width="3"/>
+  <path d="M4 24h46" stroke="#1f2933" stroke-width="4"/>
+  <path d="M11 35h9" stroke="#2f5d62" stroke-width="3" stroke-linecap="round"/>
+  <path d="M46 32l13 22H33z" fill="#eef2f4" stroke="#1f2933" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M46 41v6" stroke="#1f2933" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="46" cy="50.5" r="1.8" fill="#1f2933"/>
+</svg>
