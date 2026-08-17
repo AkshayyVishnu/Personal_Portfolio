@@ -94,7 +94,7 @@ body {
     background: var(--cobalt);
     color: #fff;
     text-decoration: none;
-    transition: background 0.2s ease;
+    transition: background 0.5s ease;
 }
 .btn:hover { background: var(--navy); }
 
