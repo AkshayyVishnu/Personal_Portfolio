@@ -15,7 +15,6 @@ function ContactForm() {
   const [form, setForm] = useState(EMPTY);
   const [sent, setSent] = useState(false);
 
-  // derived on every render from the single source of truth
   const errors = validate(form);
   const isValid = Object.keys(errors).length === 0;
 

@@ -16,7 +16,6 @@ function Navbar() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // subscribes to window resize; the cleanup removes the listener on unmount
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth <= 768);

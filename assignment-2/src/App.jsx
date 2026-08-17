@@ -10,10 +10,8 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
 function App() {
-  // read back on initial load — runs once, before the first render
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
-  // re-runs whenever theme changes: paints the document and persists the choice
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);

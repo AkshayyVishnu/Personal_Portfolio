@@ -5,7 +5,6 @@ import heroPhoto from '../assets/header_photo.avif';
 function Home() {
   const [loading, setLoading] = useState(true);
 
-  // runs once on mount; cleanup cancels the timer if the user navigates away first
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);

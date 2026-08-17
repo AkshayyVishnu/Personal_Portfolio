@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import TechStack from './TechStack';
 
 function ProjectCard({ id, title, image, alt, duration, link, tech, description, details }) {
-  // scoped per instance: each card owns its own copy of this state
   const [open, setOpen] = useState(false);
 
   return (
