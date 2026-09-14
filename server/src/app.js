@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const projectsRouter = require('./routes/projects');
 const { notFoundHandler, errorHandler } = require('./middleware/errorHandler');
 
 function createApp() {
@@ -11,6 +12,8 @@ function createApp() {
   app.get('/', (req, res) => {
     res.status(200).json({ status: 'ok' });
   });
+
+  app.use('/api/projects', projectsRouter);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
