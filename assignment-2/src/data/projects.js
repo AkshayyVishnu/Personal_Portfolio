@@ -1,12 +1,8 @@
-import jurisnet from '../assets/project-jurisnet.svg';
-import fraud from '../assets/project-fraud.svg';
-import sms from '../assets/project-sms.svg';
-
 export const projects = [
   {
     id: 'jurisnet',
     title: 'JurisNet - Citation-Faithful Hybrid RAG for Indian Civil Law',
-    image: jurisnet,
+    image: '/projects/project-jurisnet.svg',
     alt: 'Document linked to a network graph',
     duration: 'May 2026 - Jun 2026',
     link: 'https://github.com/AkshayyVishnu/JurisNet',
@@ -22,7 +18,7 @@ export const projects = [
   {
     id: 'fraud-detection',
     title: 'Credit Card Fraud Detection',
-    image: fraud,
+    image: '/projects/project-fraud.svg',
     alt: 'Credit card',
     duration: 'Oct 2025 - Dec 2025',
     link: 'https://github.com/AkshayyVishnu/fraud-detection-microservice',
@@ -38,7 +34,7 @@ export const projects = [
   {
     id: 'sms-fraud-detection',
     title: 'On-Device SMS Fraud & Phishing Detection',
-    image: sms,
+    image: '/projects/project-sms.svg',
     alt: 'Phone showing a message behind a shield',
     duration: 'Ongoing',
     link: 'https://github.com/0xMukesh/artemis',
