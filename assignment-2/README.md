@@ -111,6 +111,47 @@ All text meets WCAG AA (4.5:1) in both themes. In dark mode the accent is
 lightened and button text darkened, because white on the lighter blue would
 only reach 2.8:1.
 
+## Backend (Assignment 3)
+
+The projects list and contact form are now served by a small Express API in
+`/server` at the repository root (sibling to `assignment-1/` and
+`assignment-2/`).
+
+### Setup and run
+
+```bash
+cd server
+npm install
+cp .env.example .env   # then edit if you need different values
+npm run dev             # or: npm start
+```
+
+The API listens on `http://localhost:5000` by default (`PORT` in `.env`).
+With the frontend's own `npm run dev` running separately (`http://localhost:5173`
+by default), the app needs **two terminals**: one in `/server`, one in
+`assignment-2/`. Optionally copy `assignment-2/.env.example` to
+`assignment-2/.env` to point the frontend at a different API URL via
+`VITE_API_URL`.
+
+### Storage choice
+
+No database is used. Project data lives in a server-side JS array
+(`server/src/data/projects.js`). Contact submissions persist to a JSON file
+(`server/data/contacts.json`), created automatically the first time someone submits the form. This file is gitignored — it's a runtime data store, not part of the source.
+
+### Endpoints
+
+| Method | Path | Description | Auth |
+|---|---|---|---|
+| GET | `/` | Health check — `{ "status": "ok" }` | none |
+| GET | `/api/projects` | List all projects | none |
+| GET | `/api/projects/:id` | One project, or `404` if the id doesn't exist | none |
+| POST | `/api/contact` | Submit `{ name, email, message }`; `400` with field errors if invalid, `201` with the stored submission if valid | none |
+| GET | `/api/contact` | List all stored contact submissions | **none — open endpoint, no authentication. Anyone who can reach the API can read every submission.** |
+
+Sample requests/responses and failure cases for every endpoint are in
+[`docs/api-tests.md`](../docs/api-tests.md).
+
 ## Folder structure
 
 ```
