@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const projectsRouter = require('./routes/projects');
+const contactRouter = require('./routes/contact');
 const { notFoundHandler, errorHandler } = require('./middleware/errorHandler');
 
 function createApp() {
@@ -14,6 +15,7 @@ function createApp() {
   });
 
   app.use('/api/projects', projectsRouter);
+  app.use('/api/contact', contactRouter);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
