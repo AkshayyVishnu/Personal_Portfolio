@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_BASE_URL } from '../config';
 
 const EMPTY = { name: '', email: '', message: '' };
 
@@ -14,6 +15,9 @@ function validate({ name, email, message }) {
 function ContactForm() {
   const [form, setForm] = useState(EMPTY);
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [serverErrors, setServerErrors] = useState({});
+  const [submitError, setSubmitError] = useState(null);
 
   const errors = validate(form);
   const isValid = Object.keys(errors).length === 0;
@@ -22,12 +26,37 @@ function ContactForm() {
     const { name, value } = event.target;
     setForm((previous) => ({ ...previous, [name]: value }));
     setSent(false);
+    setServerErrors({});
+    setSubmitError(null);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    setForm(EMPTY);
-    setSent(true);
+    setSubmitting(true);
+    setSubmitError(null);
+    setServerErrors({});
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        setServerErrors(data.errors || {});
+        setSubmitError('Please fix the highlighted fields and try again.');
+        return;
+      }
+
+      setForm(EMPTY);
+      setSent(true);
+    } catch {
+      setSubmitError('Could not reach the server. Is the backend running?');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -35,6 +64,7 @@ function ContactForm() {
       <p>
         <label htmlFor="name">Name</label>
         <input id="name" name="name" type="text" value={form.name} onChange={handleChange} />
+        {serverErrors.name && <span className="error">{serverErrors.name}</span>}
       </p>
 
       <p>
@@ -51,16 +81,21 @@ function ContactForm() {
         {form.email && errors.email && (
           <span className="error" id="email-error">{errors.email}</span>
         )}
+        {serverErrors.email && <span className="error">{serverErrors.email}</span>}
       </p>
 
       <p>
         <label htmlFor="message">Message</label>
         <textarea id="message" name="message" rows="4" value={form.message} onChange={handleChange} />
+        {serverErrors.message && <span className="error">{serverErrors.message}</span>}
       </p>
 
       <p>
-        <button type="submit" className="btn" disabled={!isValid}>Send</button>
+        <button type="submit" className="btn" disabled={!isValid || submitting}>
+          {submitting ? 'Sending…' : 'Send'}
+        </button>
         {!isValid && <span className="form-hint">Fill in every field to enable Send.</span>}
+        {submitError && <span className="error" role="alert">{submitError}</span>}
         {sent && <span className="sent" role="status">Thanks — your message has been recorded.</span>}
       </p>
     </form>
